@@ -3,7 +3,6 @@ from pathlib import Path
 
 from faker import Faker
 
-
 OUTPUT = Path("data/synthetic/gold_set.jsonl")
 SEED = 42
 N_DOCS = 30
@@ -35,8 +34,7 @@ def hr_letter(fake: Faker, doc_id: str) -> dict:
     employee = fake.unique.name()
     manager = fake.unique.name()
     address = fake.address().replace("\n", ", ")  # flatten
-    birth_date = fake.date_of_birth(
-        minimum_age=22, maximum_age=77).strftime("%d/%m/%Y")
+    birth_date = fake.date_of_birth(minimum_age=22, maximum_age=77).strftime("%d/%m/%Y")
     hire_date = fake.date_between(start_date="-8y").strftime("%d/%m/%Y")
     salary = f"{fake.random_int(1800, 7000)}€"
 
@@ -62,7 +60,10 @@ def hr_letter(fake: Faker, doc_id: str) -> dict:
         (fake.iban(), "IBAN_CODE"),
         (".\n\n", None),
         # Deliberate precision trap: a business amount that must NOT be masked.
-        ("Attestation délivrée dans le cadre du marché n° 2024-118, d'un montant de 145 000 €.\n\n", None),
+        (
+            "Attestation délivrée dans le cadre du marché n° 2024-118, d'un montant de 145 000 €.\n\n",
+            None,
+        ),
         ("Contact : ", None),
         (fake.email(), "EMAIL_ADDRESS"),
         (" — ", None),
@@ -77,7 +78,7 @@ def hr_letter(fake: Faker, doc_id: str) -> dict:
         "doc_id": doc_id,
         "text": text,
         "entities": entities,
-        "meta": {"template": "hr_letter", "name_origin": "french", "seed": SEED}
+        "meta": {"template": "hr_letter", "name_origin": "french", "seed": SEED},
     }
 
 
