@@ -1,7 +1,7 @@
 [project]
-name = "sovereign-doc-assistant"
+name = "pii-aware-llm-router"
 version = "0.1.0"
-description = "Add your description here"
+description = "Routes document Q&A between a local model and the Mistral API under a data-sensitivity constraint, with measured cost, latency and anonymizer accuracy."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
