@@ -38,10 +38,14 @@ def _resolve_overlaps(results: list[RecognizerResult]) -> list[RecognizerResult]
     return sorted(accepted, key=lambda r: r.start)
 
 
-def anonymize(text: str) -> tuple[str, dict[str, str]]:
+def detect(text: str) -> list[RecognizerResult]:
     results = analyzer.analyze(text=text, language="fr")
     results = [r for r in results if r.score >= _MIN_SCORE.get(r.entity_type, 0.0)]
-    results = _resolve_overlaps(results)
+    return _resolve_overlaps(results)
+
+
+def anonymize(text: str) -> tuple[str, dict[str, str]]:
+    results = detect(text)
 
     mapping: dict[str, str] = {}
     placeholder_for: dict[tuple[str, str], str] = {}
