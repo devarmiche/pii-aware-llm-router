@@ -9,6 +9,20 @@ N_DOCS = 30
 
 Segment = tuple[str, str | None]
 
+# Hard cases planted deliberately: particles/hyphens, surnames that are also
+# common nouns, and non-French-origin names — see claude.md for why.
+NAME_ORIGIN: dict[str, str] = {
+    "Gérard-Frédéric Joly": "french",
+    "Alexandre Traore": "french",
+    "Marie de la Rochefoucauld": "french_particle",
+    "Jean Dupont-Moretti": "french_hyphenated",
+    "Fleury Rose": "french_common_noun_surname",
+    "Minh Nguyen": "non_french",
+    "Awa Diallo": "non_french",
+    "Piotr Kowalski": "non_french",
+    "Yasmine Ben Salah": "non_french",
+}
+
 
 def assemble(segments: list[Segment]) -> tuple[str, list[dict]]:
     """Concatenate segments"""
@@ -31,8 +45,9 @@ def assemble(segments: list[Segment]) -> tuple[str, list[dict]]:
 
 
 def hr_letter(fake: Faker, doc_id: str) -> dict:
-    employee = fake.unique.name()
-    manager = fake.unique.name()
+    manager, employee = fake.random_elements(
+        elements=list(NAME_ORIGIN), length=2, unique=True
+    )
     address = fake.address().replace("\n", ", ")  # flatten
     birth_date = fake.date_of_birth(minimum_age=22, maximum_age=77).strftime("%d/%m/%Y")
     hire_date = fake.date_between(start_date="-8y").strftime("%d/%m/%Y")
@@ -74,11 +89,15 @@ def hr_letter(fake: Faker, doc_id: str) -> dict:
     ]
 
     text, entities = assemble(segments)
+    for entity in entities:
+        if entity["type"] == "PERSON":
+            entity["name_origin"] = NAME_ORIGIN[entity["value"]]
+
     return {
         "doc_id": doc_id,
         "text": text,
         "entities": entities,
-        "meta": {"template": "hr_letter", "name_origin": "french", "seed": SEED},
+        "meta": {"template": "hr_letter", "seed": SEED},
     }
 
 

@@ -77,3 +77,7 @@ def test_schema_is_complete(docs: list[dict]) -> None:
             assert entity["start"] < entity["end"], (
                 f"{doc['doc_id']}: non-positive span on {entity['type']}"
             )
+            if entity["type"] == "PERSON":
+                assert entity.get("name_origin"), (
+                    f"{doc['doc_id']}: PERSON entity missing name_origin"
+                )
