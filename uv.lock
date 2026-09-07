@@ -608,6 +608,7 @@ source = { virtual = "." }
 dependencies = [
     { name = "faker" },
     { name = "presidio-analyzer" },
+    { name = "requests" },
     { name = "spacy" },
 ]
 
@@ -621,6 +622,7 @@ dev = [
 requires-dist = [
     { name = "faker", specifier = ">=40.37.0" },
     { name = "presidio-analyzer", specifier = ">=2.2.364" },
+    { name = "requests", specifier = ">=2.34.2" },
     { name = "spacy", specifier = ">=3.8.16" },
 ]
 
