@@ -18,10 +18,14 @@ FIELDNAMES = [
     "reason",
 ]
 
-# Filled in once the API provider (OpenRouter) and model are chosen — see
-# claude.md. Deliberately empty rather than a guessed number: model -> (price
-# per 1k input tokens, price per 1k output tokens), in EUR.
-PRICE_EUR_PER_1K_TOKENS: dict[str, tuple[float, float]] = {}
+# model -> (price per 1k input tokens, price per 1k output tokens), in EUR.
+# Source: OpenRouter's public /api/v1/models pricing (USD per token), fetched
+# 2026-09-12: mistralai/mistral-large-2512 at $0.0000005 in / $0.0000015 out.
+# Converted at 1 USD = 0.86 EUR (EUR/USD ~1.16 that day). Re-derive both the
+# per-token price and the exchange rate before trusting this for a new date.
+PRICE_EUR_PER_1K_TOKENS: dict[str, tuple[float, float]] = {
+    "mistralai/mistral-large-2512": (0.00043, 0.00129),
+}
 
 
 class Timer:

@@ -5,8 +5,8 @@ from src.backends import OLLAMA_MODEL, call_api, call_local
 from src.router import RouteDecision, route
 from src.tracker import Timer, compute_api_cost, log_call
 
-# Placeholder until the OpenRouter model choice is settled — see claude.md.
-API_MODEL = "mistral-large-latest"
+# Served through OpenRouter — see claude.md and src/backends.py.
+API_MODEL = "mistralai/mistral-large-2512"
 
 
 def build_prompt(query: str, doc_context: str) -> str:
@@ -37,9 +37,12 @@ class PipelineResult:
     cost_eur: float
 
 
-def answer_question(doc_text: str, query: str) -> PipelineResult:
+def answer_question(doc_text: str, query: str, doc_count: int = 1) -> PipelineResult:
+    """doc_count: how many source documents doc_text was assembled from —
+    forwarded to the router's cross-referencing signal. See eval/run_questions.py
+    for multi-document (cross-document) questions."""
     masked_doc, mapping = anonymize(doc_text)
-    decision = route(query, masked_doc, had_pii=bool(mapping))
+    decision = route(query, masked_doc, had_pii=bool(mapping), doc_count=doc_count)
     prompt = build_prompt(query, masked_doc)
 
     with Timer() as timer:

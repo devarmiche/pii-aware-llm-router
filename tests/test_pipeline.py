@@ -92,13 +92,46 @@ def test_pii_gate_forces_local_even_with_legal_keyword(
     assert "PII" in result.decision.reason
 
 
-def test_answer_question_raises_when_routed_to_unimplemented_api(
+def test_answer_question_routes_api_and_computes_cost(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    with pytest.raises(NotImplementedError):
-        pipeline.answer_question(
-            "Document sans PII.", "Quelle est la jurisprudence applicable ?"
-        )
+    monkeypatch.setitem(
+        tracker.PRICE_EUR_PER_1K_TOKENS, pipeline.API_MODEL, (0.001, 0.002)
+    )
+    monkeypatch.setattr(
+        pipeline,
+        "call_api",
+        lambda prompt, model: LLMResponse(
+            text="réponse", input_tokens=1000, output_tokens=500
+        ),
+    )
 
-    # the crash happens before log_call, so nothing should have been written
-    assert not tracker.LOG_PATH.exists()
+    result = pipeline.answer_question(
+        "Document sans PII.", "Quelle est la jurisprudence applicable ?"
+    )
+
+    assert result.decision.route == "api"
+    assert result.model == pipeline.API_MODEL
+    assert result.cost_eur == pytest.approx(0.001 + 0.001)
+
+
+def test_answer_question_forwards_doc_count_to_router(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setitem(
+        tracker.PRICE_EUR_PER_1K_TOKENS, pipeline.API_MODEL, (0.001, 0.002)
+    )
+    monkeypatch.setattr(
+        pipeline,
+        "call_api",
+        lambda prompt, model: LLMResponse(
+            text="réponse", input_tokens=10, output_tokens=5
+        ),
+    )
+
+    result = pipeline.answer_question(
+        "doc court", "Compare ces documents", doc_count=2
+    )
+
+    assert result.decision.route == "api"
+    assert "2 documents" in result.decision.reason
