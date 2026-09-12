@@ -10,3 +10,6 @@ claude.md
 .venv/
 .pytest_cache/
 .ruff_cache/
+
+# fetched by scripts/fetch_corpus.py — never vendored, see data/corpus_manifest.csv
+data/corpus/
