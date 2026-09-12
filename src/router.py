@@ -2,7 +2,8 @@ from dataclasses import dataclass
 from typing import Literal
 
 # Openly heuristic, not a classifier — see claude.md. Curated, not exhaustive;
-# expected to be revised once eval/questions.csv exists and can validate it.
+# expected to be revised once eval/run_questions.py has been run against real
+# calls and the router's decisions can be checked against measured quality.
 LEGAL_KEYWORDS = [
     "jurisprudence",
     "cassation",
@@ -19,7 +20,7 @@ LEGAL_KEYWORDS = [
     "litige",
 ]
 
-# Provisional, not yet validated against eval/questions.csv (doesn't exist yet).
+# Provisional — not yet validated against a real measurement run.
 _LENGTH_THRESHOLD_CHARS = 4000
 
 
