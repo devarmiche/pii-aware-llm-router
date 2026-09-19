@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "faker>=40.37.0",
+    "fr-core-news-md",
     "presidio-analyzer>=2.2.364",
     "pypdf>=6.18.1",
     "requests>=2.34.2",
@@ -22,3 +23,6 @@ venvPath="."
 venv=".venv"
 [tool.pytest.ini_options]
 pythonpath=["."]
+
+[tool.uv.sources]
+fr-core-news-md = { url = "https://github.com/explosion/spacy-models/releases/download/fr_core_news_md-3.8.0/fr_core_news_md-3.8.0-py3-none-any.whl" }

@@ -353,6 +353,14 @@ wheels = [
 ]
 
 [[package]]
+name = "fr-core-news-md"
+version = "3.8.0"
+source = { url = "https://github.com/explosion/spacy-models/releases/download/fr_core_news_md-3.8.0/fr_core_news_md-3.8.0-py3-none-any.whl" }
+wheels = [
+    { url = "https://github.com/explosion/spacy-models/releases/download/fr_core_news_md-3.8.0/fr_core_news_md-3.8.0-py3-none-any.whl", hash = "sha256:8a70d090a54ef77525c3ffa6a6195b9d365f2cf369ae1cd84ede93f3d709079e" },
+]
+
+[[package]]
 name = "h11"
 version = "0.16.0"
 source = { registry = "https://pypi.org/simple" }
@@ -779,6 +787,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "faker" },
+    { name = "fr-core-news-md" },
     { name = "presidio-analyzer" },
     { name = "pypdf" },
     { name = "requests" },
@@ -795,6 +804,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "faker", specifier = ">=40.37.0" },
+    { name = "fr-core-news-md", url = "https://github.com/explosion/spacy-models/releases/download/fr_core_news_md-3.8.0/fr_core_news_md-3.8.0-py3-none-any.whl" },
     { name = "presidio-analyzer", specifier = ">=2.2.364" },
     { name = "pypdf", specifier = ">=6.18.1" },
     { name = "requests", specifier = ">=2.34.2" },
