@@ -115,6 +115,31 @@ def test_answer_question_routes_api_and_computes_cost(
     assert result.cost_eur == pytest.approx(0.001 + 0.001)
 
 
+def test_answer_question_force_route_overrides_auto_decision(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setitem(
+        tracker.PRICE_EUR_PER_1K_TOKENS, pipeline.API_MODEL, (0.001, 0.002)
+    )
+    monkeypatch.setattr(
+        pipeline,
+        "call_api",
+        lambda prompt, model: LLMResponse(
+            text="réponse", input_tokens=10, output_tokens=5
+        ),
+    )
+
+    result = pipeline.answer_question(
+        "Contactez-moi à jean.dupont@example.com.",
+        "Une question simple.",
+        force_route="api",
+    )
+
+    assert result.decision.route == "api"
+    assert "forced by user" in result.decision.reason
+    assert "auto decision was local" in result.decision.reason
+
+
 def test_answer_question_forwards_doc_count_to_router(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:

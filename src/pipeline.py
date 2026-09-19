@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import Literal
 
 from src.anonymizer import anonymize
 from src.backends import OLLAMA_MODEL, call_api, call_local
@@ -41,12 +42,29 @@ class PipelineResult:
     cost_eur: float
 
 
-def answer_question(doc_text: str, query: str, doc_count: int = 1) -> PipelineResult:
+def answer_question(
+    doc_text: str,
+    query: str,
+    doc_count: int = 1,
+    force_route: Literal["local", "api"] | None = None,
+) -> PipelineResult:
     """doc_count: how many source documents doc_text was assembled from —
     forwarded to the router's cross-referencing signal. See eval/run_questions.py
-    for multi-document (cross-document) questions."""
+    for multi-document (cross-document) questions.
+
+    force_route: bypass the router and use this route instead (the app's
+    "100% Local" / "100% API" modes) — the auto decision is still computed
+    and logged in the reason, for comparison."""
     masked_doc, mapping = anonymize(doc_text)
-    decision = route(query, masked_doc, had_pii=bool(mapping), doc_count=doc_count)
+    auto_decision = route(query, masked_doc, had_pii=bool(mapping), doc_count=doc_count)
+    if force_route is None:
+        decision = auto_decision
+    else:
+        decision = RouteDecision(
+            force_route,
+            f"forced by user ({force_route}); auto decision was "
+            f"{auto_decision.route} ({auto_decision.reason})",
+        )
     prompt = build_prompt(query, masked_doc)
 
     with Timer() as timer:
