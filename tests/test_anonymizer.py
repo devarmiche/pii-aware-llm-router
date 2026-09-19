@@ -1,4 +1,9 @@
-from src.recognizers_fr import FrNirRecognizer, FrSiretRecognizer, _fr_nir_ok, _fr_siret_ok
+from src.recognizers_fr import (
+    FrNirRecognizer,
+    FrSiretRecognizer,
+    _fr_nir_ok,
+    _fr_siret_ok,
+)
 
 # --- pure checksum functions: fast, no model load ---
 
@@ -58,7 +63,7 @@ def test_fr_siret_recognizer_finds_valid_siret() -> None:
 
 # --- full pipeline: loads fr_core_news_md once per test session ---
 
-from src.anonymizer import anonymize  # noqa: E402
+from src.anonymizer import anonymize
 
 
 def test_anonymize_masks_and_maps_person() -> None:
