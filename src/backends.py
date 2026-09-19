@@ -4,7 +4,9 @@ from dataclasses import dataclass
 
 import requests
 
-OLLAMA_URL = "http://localhost:11434/api/generate"
+OLLAMA_URL = (
+    os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434") + "/api/generate"
+)
 OLLAMA_MODEL = "mistral:7b-instruct"
 # mistral:7b-instruct's real context window (`ollama show mistral:7b-instruct`).
 # Ollama's /api/generate defaults num_ctx to 2048 when it's not set explicitly,

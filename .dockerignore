@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.git/
+claude.md
+.env
+data/corpus/
+data/synthetic/
+data/tracker_log.csv
+eval/question_results.csv
+eval/grading_sheet.csv
+eval/grading_key.csv
+eval/graded_results.csv
