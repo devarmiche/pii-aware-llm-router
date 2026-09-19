@@ -1,0 +1,422 @@
+grade_id,question_id,question,answer,score
+1,q07,Résume le point 5 du dispositif de l'arrêt Schrems II concernant la décision Privacy Shield.,"Le point 5 du dispositif de l'arrêt **Schrems II** (C-311/18) de la Cour de justice de l'Union européenne (CJUE) déclare que :
+
+**« La décision d’exécution (UE) 2016/1250 de la Commission, du 12 juillet 2016, conformément à la directive 95/46/CE du Parlement européen et du Conseil relative à l’adéquation de la protection assurée par le bouclier de protection des données UE-États-Unis (Privacy Shield), est invalide. »**
+
+### Résumé en termes simples :
+La CJUE a **annulé** la décision de la Commission européenne qui validait le **Privacy Shield** (bouclier de protection des données UE-États-Unis). Ce mécanisme permettait aux entreprises de transférer des données personnelles de l'UE vers les États-Unis en garantissant un niveau de protection adéquat. La Cour a estimé que ce cadre ne respectait pas les exigences du **RGPD** et de la **Charte des droits fondamentaux de l'UE**, notamment en raison :
+- Des **programmes de surveillance américains** (comme ceux basés sur le *FISA* ou l’*Executive Order 12333*), jugés trop intrusifs et non proportionnés.
+- De l’**absence de recours effectifs** pour les citoyens européens en cas d’accès abusif à leurs données par les autorités américaines.
+
+Cette invalidation a des conséquences majeures pour les transferts de données transatlantiques, obligeant les entreprises à recourir à d'autres mécanismes (comme les **clauses contractuelles types** ou les **règles d'entreprise contraignantes**).",3
+2,q11,"Résume le rôle des codes de conduite comme mécanisme de transfert au sens de l'article 46 du RGPD, d'après les lignes directrices EDPB 04/2021.","D'après les **lignes directrices EDPB 04/2021** (version 2.0 du 22 février 2022), les **codes de conduite** jouent le rôle suivant comme **mécanisme de transfert** au sens de l'**Article 46 du RGPD** :
+
+---
+
+### **1. Objectif des codes de conduite pour les transferts**
+- Ils permettent aux **responsables de traitement ou sous-traitants situés dans un pays tiers** (hors UE/EEE) de fournir des **garanties appropriées** pour les transferts de données personnelles depuis l'UE, conformément à l'**Article 46-2-e) du RGPD**.
+- Une fois **approuvés par une autorité de protection des données (SA)** et **reconnus par la Commission européenne** (via un acte d'exécution), ces codes peuvent être utilisés par des entités **non soumises au RGPD** pour encadrer les transferts.
+
+---
+
+### **2. Fonctionnement et avantages**
+- **Adhésion par les importateurs de données** :
+  - Les **contrôleurs ou processeurs dans un pays tiers** (ex. : un fournisseur de cloud) peuvent **adhérer à un code de conduite** pour démontrer leur conformité aux exigences du RGPD.
+  - Ils doivent prendre des **engagements contraignants et exécutoires** (via un contrat ou un autre instrument juridique) pour appliquer les garanties du code, notamment en matière de **droits des personnes concernées**.
+
+- **Utilisation par les exportateurs de données** :
+  - Les **responsables de traitement ou sous-traitants soumis au RGPD** (ex. : une entreprise européenne) peuvent **s'appuyer sur un code de conduite** auquel a adhéré leur partenaire dans un pays tiers **sans avoir à y adhérer eux-mêmes**.
+  - Exemple : Une entreprise européenne transfère des données à un prestataire de cloud basé aux États-Unis, qui a adhéré à un code de conduite approuvé. Le transfert est encadré par ce code.
+
+- **Avantages par rapport à d'autres mécanismes** :
+  - **Flexibilité** : Pas besoin d'appartenir à un même groupe (contrairement aux BCR).
+  - **Adaptation sectorielle** : Les codes peuvent être conçus pour des **secteurs spécifiques** (ex. : santé, RH) ou des **activités de traitement communes** (ex. : stockage cloud).
+  - **Simplification** : Un seul outil pour encadrer **plusieurs transferts** vers un même pays tiers.
+
+---
+
+### **3. Contenu obligatoire d'un code de conduite pour les transferts**
+Pour être approuvé, un code doit couvrir :
+- **Les principes essentiels du RGPD** :
+  - Transparence, limitation des finalités, minimisation des données, sécurité, etc.
+  - Règles sur les **sous-traitants** et les **transferts ultérieurs** (onward transfers).
+- **Les garanties spécifiques aux transferts** :
+  - Gestion des **conflits de lois** dans le pays tiers (ex. : lois locales contraires au RGPD).
+  - Mécanismes pour faire face aux **demandes d'accès des autorités publiques** du pays tiers (ex. : notification à l'exportateur, mesures supplémentaires).
+  - **Droits des personnes concernées** (accès, rectification, effacement, etc.) et **recours juridiques** (ex. : possibilité de saisir un tribunal européen).
+- **Engagements contraignants** :
+  - Les importateurs de données doivent signer un **contrat** ou un autre instrument juridique **exécutoire** (ex. : clause dans un accord de service) pour garantir le respect du code.
+  - **Responsabilité** : Le code doit prévoir des **mécanismes de réparation** en cas de violation (ex. : indemnisation des personnes concernées, sanctions par l'organe de surveillance).
+
+---
+
+### **4. Acteurs clés et processus d'adoption**
+- **Propriétaire du code** (code owner) :
+  - Association, fédération ou organisme représentant un secteur (ex. : fédération des professionnels de santé) qui rédige le code.
+- **Organe de surveillance** (monitoring body) :
+  - Doit être **accrédité par une autorité de protection des données (SA)** pour vérifier le respect du code par les adhérents (y compris dans les pays tiers).
+  - Peut être basé **dans ou hors de l'UE**, mais doit avoir un **établissement dans l'UE** pour assurer sa responsabilité.
+- **Autorités de protection des données (SA)** :
+  - Approuvent le code et accréditent l'organe de surveillance.
+- **Comité européen de la protection des données (EDPB)** :
+  - Émet un **avis** sur le projet de décision d'approbation par la SA.
+- **Commission européenne** :
+  - **Reconnaît la validité générale du code** dans l'UE via un acte d'exécution (Article 40-9).
+
+---
+
+### **5. Exemples concrets**
+- **Exemple 1** :
+  Une entreprise européenne utilise un **fournisseur de cloud basé aux États-Unis** qui a adhéré à un code de conduite approuvé pour les services cloud. Le transfert est encadré par ce code, sans que l'entreprise européenne n'ait besoin d'y adhérer.
+- **Exemple 2** :
+  Une association de chercheurs en santé développe un code de conduite pour encadrer les transferts de données vers des partenaires dans des pays tiers. Les chercheurs européens et leurs partenaires tiers adhèrent au code, qui sert de mécanisme de transfert.
+
+---
+
+### **6. Garanties supplémentaires inspirées de l'arrêt ""Schrems II""**
+Le code doit inclure des **mesures pour atténuer les risques liés aux lois locales** du pays tiers, telles que :
+- Une **évaluation préalable** des lois du pays tiers pour s'assurer qu'elles n'empêchent pas le respect du code.
+- Des **mesures supplémentaires** (ex. : chiffrement, pseudonymisation) si nécessaire.
+- Un **mécanisme de notification** en cas de changement de législation locale.
+
+---
+
+### **En résumé**
+Les codes de conduite pour les transferts offrent un **mécanisme flexible et sectoriel** pour encadrer les flux de données vers des pays tiers, en s'appuyant sur des **engagements contraignants** et un **contrôle indépendant**. Ils complètent les autres outils de l'**Article 46** (comme les clauses contractuelles types ou les BCR) en permettant une **approche adaptée aux besoins spécifiques** des secteurs ou des activités de traitement.",3
+3,q12,Le point 5 du dispositif (invalidation du Privacy Shield) porte-t-il le même sens dans les versions française et anglaise de l'arrêt ?,"Dans les versions française et anglaise de l'arrêt, le point 5 du dispositif porte effectivement le même sens, mais avec des formulations légèrement différentes pour refléter les nuances linguistiques et juridiques propres à chaque langue.
+
+**Version française :**
+""5. La décision d’exécution (UE) 2016/1250 de la Commission, du 12 juillet 2016, conformément à la directive 95/46/CE du Parlement européen et du Conseil relative à l’adéquation de la protection assurée par le bouclier de protection des données UE-États-Unis est invalide.""
+
+**Version anglaise :**
+""5. Commission Implementing Decision (EU) 2016/1250 of 12 July 2016 pursuant to Directive 95/46/EC of the European Parliament and of the Council on the adequacy of the protection provided by the EU-US Privacy Shield is invalid.""
+
+Les deux versions expriment clairement que la Cour de justice de l'Union européenne (CJUE) déclare invalide la décision de la Commission européenne relative au Privacy Shield UE-États-Unis. La différence réside principalement dans la structure de la phrase et les termes juridiques utilisés, mais le sens et la portée juridique sont identiques.",3
+4,q18,Comment le Conseil d'État articule-t-il l'obligation de motivation d'une sanction administrative avec l'absence d'obligation de détailler le calcul chiffré du montant ?,"D'après le document, le Conseil d'État articule l'obligation de motivation d'une sanction administrative avec l'absence d'obligation de détailler le calcul chiffré du montant de la manière suivante :
+
+1. **Obligation de motivation** :
+   - L’article L. 211-2 du code des relations entre le public et l’administration impose que les décisions infligeant une sanction soient motivées.
+   - L’article L. 211-5 du même code précise que cette motivation doit être écrite et comporter l’énoncé des considérations de droit et de fait qui fondent la décision.
+   - Le Conseil d'État rappelle que, lorsque la légalité d’une décision repose sur plusieurs considérations, la motivation doit se limiter à celles qui justifient effectivement la décision prise (point 26).
+
+2. **Absence d'obligation de détailler le calcul chiffré** :
+   - Le Conseil d'État souligne qu’aucune disposition n’impose à la formation restreinte de la CNIL (ou toute autorité administrative) de procéder à une explicitation détaillée du montant de la sanction infligée (point 26).
+   - Ainsi, la décision attaquée n’avait pas à se prononcer sur l’ensemble des critères prévus à l’article 83 du RGPD ni à indiquer les éléments chiffrés relatifs au mode de détermination du montant de la sanction.
+
+En résumé, la motivation doit expliquer les raisons de la sanction (manquements constatés, gravité, etc.), mais elle n’a pas à détailler le processus de calcul précis du montant, sauf si une disposition spécifique l’exige.",3
+5,q03,Quel est le montant de la sanction pécuniaire dont le Conseil d'État juge qu'elle ne revêt pas un caractère disproportionné ?, La sanction pécuniaire de 50 000 000 d'euros prononcée à l'encontre de la société Google par le Conseil d'État ne revêt pas un caractère disproportionné.,3
+6,q16,"Qu'entend la Cour par un niveau de protection 'substantiellement équivalent' à celui garanti par le RGPD, dans le contexte d'un transfert fondé sur des clauses contractuelles types ?","D'après le document, la Cour de justice de l'Union européenne (CJUE) entend par un niveau de protection **""substantiellement équivalent""** à celui garanti par le RGPD (Règlement général sur la protection des données) dans le contexte d'un transfert de données fondé sur des **clauses contractuelles types** (SCC - *Standard Contractual Clauses*) les éléments suivants :
+
+1. **Protection des droits fondamentaux** :
+   Le niveau de protection doit être **substantiellement équivalent** à celui garanti au sein de l'Union européenne (UE) par le RGPD, **lu à la lumière de la Charte des droits fondamentaux de l'UE** (articles 7, 8 et 47). Cela signifie que les droits des personnes concernées (comme le droit à la vie privée, la protection des données et le droit à un recours effectif) doivent être respectés de manière comparable à ce qui est exigé dans l'UE.
+
+2. **Garanties appropriées, droits opposables et voies de recours effectives** :
+   - Les **garanties appropriées** doivent compenser l'insuffisance éventuelle de la protection des données dans le pays tiers destinataire.
+   - Les personnes concernées doivent disposer de **droits opposables** (c'est-à-dire des droits qu'elles peuvent faire valoir juridiquement) et de **voies de recours effectives** pour protéger leurs données.
+   - Ces garanties doivent assurer que les droits des personnes concernées sont respectés de manière **appropriée au traitement des données au sein de l'UE**.
+
+3. **Évaluation des stipulations contractuelles et du cadre juridique du pays tiers** :
+   - L'évaluation du niveau de protection doit prendre en compte :
+     - Les **stipulations contractuelles** convenues entre l'exportateur (responsable du traitement ou sous-traitant établi dans l'UE) et l'importateur (destinataire des données dans le pays tiers).
+     - Les **éléments pertinents du système juridique du pays tiers**, notamment :
+       - La législation applicable (y compris en matière de sécurité publique, défense, sécurité nationale et accès des autorités publiques aux données).
+       - Les droits effectifs et opposables dont bénéficient les personnes concernées.
+       - Les recours administratifs et judiciaires disponibles.
+       - L'existence d'autorités de contrôle indépendantes et de mécanismes de coopération avec les autorités de l'UE.
+
+4. **Respect du principe de proportionnalité** :
+   - Les limitations apportées aux droits fondamentaux (comme l'accès des autorités publiques aux données transférées) doivent être **limitées au strict nécessaire** pour atteindre un objectif légitime (par exemple, la sécurité nationale).
+   - Le droit du pays tiers ne doit pas permettre des ingérences disproportionnées dans les droits des personnes concernées.
+
+5. **Responsabilité des acteurs** :
+   - Le **responsable du traitement ou le sous-traitant établi dans l'UE** doit vérifier, avant tout transfert, si le droit du pays tiers permet à l'importateur de respecter les clauses contractuelles types.
+   - Si le droit du pays tiers impose des obligations incompatibles avec ces clauses (par exemple, un accès illimité des autorités publiques aux données), le responsable du traitement doit **suspendre le transfert ou résilier le contrat**.
+
+6. **Rôle des autorités de contrôle** :
+   - Les autorités de protection des données (comme la CNIL en France) ont le pouvoir et l'obligation de **suspendre ou interdire un transfert** si elles estiment que les clauses contractuelles types ne peuvent pas être respectées dans le pays tiers et que la protection requise par le RGPD ne peut pas être assurée par d'autres moyens.
+
+### En résumé :
+Un niveau de protection **""substantiellement équivalent""** signifie que les données transférées vers un pays tiers doivent bénéficier d'une protection **comparable** à celle offerte par le RGPD, en tenant compte à la fois des engagements contractuels et du cadre juridique du pays tiers. Si ce niveau ne peut pas être garanti, le transfert doit être suspendu ou interdit.",3
+7,q01,Quel est le montant de l'amende administrative prononcée par la CNIL à l'encontre de GOOGLE LLC ?,"D'après le document, la formation restreinte de la CNIL a prononcé à l'encontre de la société **GOOGLE LLC une amende administrative d’un montant de deux cents millions (200 000 000) d’euros**. Cette amende concerne les manquements aux articles 82 de la loi Informatique et Libertés et L. 34-5 du code des postes et des communications électroniques.",3
+8,q13,Ces deux documents portent chacun sur une sanction de la CNIL contre Google : à combien d'années d'écart et pour quels manquements distincts ?,"D'après les documents fournis :
+
+1. **Première sanction (Délibération SAN-2019-001 du 21 janvier 2019, confirmée par le Conseil d'État le 19 juin 2020)** :
+   - **Manquements** :
+     - Violation des obligations d’information et de transparence (articles 12 et 13 du RGPD).
+     - Recueil non valide du consentement pour les traitements de personnalisation de la publicité (articles 4, 6 et 7 du RGPD).
+   - **Montant** : 50 millions d'euros.
+
+2. **Deuxième sanction (Délibération SAN-2025-004 du 1er septembre 2025)** :
+   - **Manquements** :
+     - Manquement à l’obligation d’informer les personnes concernées et d’obtenir leur consentement avant d’inscrire des cookies sur leur terminal (article 82 de la loi Informatique et Libertés).
+     - Manquement à l’obligation de recueillir le consentement des personnes concernées pour la prospection commerciale par voie électronique (article L. 34-5 du code des postes et des communications électroniques).
+   - **Montant** : 200 millions d'euros pour Google LLC et 125 millions d'euros pour Google Ireland Limited.
+
+**Écart entre les deux sanctions** :
+- Environ **6 ans et 8 mois** (de janvier 2019 à septembre 2025).
+
+**Manquements distincts** :
+- La première sanction concernait principalement des violations du RGPD (transparence et consentement pour la personnalisation publicitaire).
+- La seconde sanction porte sur des violations de la directive ePrivacy (cookies et prospection électronique), transposée en droit français.",3
+9,q17,Sur quels critères de l'article 83 du RGPD la formation restreinte s'appuie-t-elle pour qualifier le montant de l'amende de dissuasif et proportionné ?,"La formation restreinte s'appuie sur plusieurs critères de l'article 83 du RGPD pour qualifier le montant de l'amende de dissuasif et proportionné. Voici les principaux critères mentionnés dans le document :
+
+1. **Nature, gravité et durée de la violation** (Article 83, parag. 2, a) du RGPD) :
+   - La formation restreinte considère la gravité des manquements aux articles 82 de la loi Informatique et Libertés et L. 34-5 du CPCE.
+   - Elle souligne l'impact sur un grand nombre de personnes concernées et la nature intrusive des pratiques.
+
+2. **Degré de responsabilité du responsable du traitement** (Article 83, parag. 2, d) du RGPD) :
+   - Les sociétés ont fait preuve de négligence, notamment en ne prenant pas les mesures nécessaires malgré des sanctions antérieures.
+
+3. **Mesures prises pour atténuer le dommage subi par les personnes concernées** (Article 83, parag. 2, c) du RGPD) :
+   - Bien que des mesures aient été prises après la saisine de la CNIL pour corriger certaines pratiques, ces mesures n'ont pas été suffisantes pour assurer une conformité totale.
+
+4. **Degré de coopération avec l’autorité de contrôle** (Article 83, parag. 2, f) du RGPD) :
+   - La formation restreinte note que les sociétés ont collaboré durant la procédure, mais cette coopération n'a pas été jugée suffisante pour atténuer la sanction.
+
+5. **Catégories de données à caractère personnel concernées** (Article 83, parag. 2, g) du RGPD) :
+   - Les manquements concernent des données personnelles sensibles, notamment celles liées à la publicité ciblée et à la prospection commerciale.
+
+6. **Avantages financiers tirés des violations** (Article 83, parag. 2, k) du RGPD) :
+   - Les sociétés ont tiré un avantage financier certain des pratiques non conformes, ce qui est pris en compte comme une circonstance aggravante.
+
+7. **Autres facteurs aggravants** :
+   - La position dominante des sociétés sur le marché de la publicité en ligne.
+   - La répétition des manquements malgré des sanctions antérieures.
+
+En résumant, la formation restreinte prend en compte ces critères pour déterminer que le montant de l'amende doit être à la fois dissuasif et proportionné, en tenant compte de la capacité économique réelle des sociétés et de la nécessité de garantir le respect des règles de protection des données personnelles.",2
+10,q09,Résume le raisonnement par lequel le Conseil d'État rejette le moyen tiré de l'insuffisance de motivation de la sanction.," Le raisonnement par lequel le Conseil d'État rejette le moyen tiré de l'insuffisance de motivation de la sanction est le suivant :
+
+1. Les dispositions du Code des relations entre le public et l'administration exigent que toutes les décisions, y compris celles qui infligent une sanction, soient motivées.
+
+2. Dans l'hypothèse où la légalité d'une décision administrative repose sur la prise en compte d'un certain nombre de considérations, le respect de l'exigence de motivation ne conduit son auteur à devoir énoncer que celles sur lesquelles se fonde la décision qu'il a prise.
+
+3. Il ne résulte en outre d'aucune disposition que la formation restreinte de la Commission nationale de l’informatique et 
+des libertés devrait procéder à une explicitation du montant des sanctions qu'elle prononce.
+
+4. Les moyens tirés de l'insuffisance de motivation de la décision attaquée qui n'avait ni à se prononcer sur l'ensemble des critères prévus à l'article 83 du RGPD précité ni à indiquer les éléments chiffrés relatifs au mode de détermination du montant de la sanction infligée et de l'erreur de droit que révélerait cette insuffisance de motivation doivent être écartés.
+
+Ainsi, dans le cas présent, les moyens tirés de l'insuffisance de motivation de la sanction ne sont pas valides.",3
+11,q09,Résume le raisonnement par lequel le Conseil d'État rejette le moyen tiré de l'insuffisance de motivation de la sanction.,"Le Conseil d'État rejette le moyen tiré de l'insuffisance de motivation de la sanction infligée par la **CNIL** (formation restreinte de la CNIL) en s'appuyant sur les éléments suivants, extraits du document :
+
+1. **Cadre juridique applicable** :
+   - L’**article L. 211-2 du code des relations entre le public et l’administration** impose la motivation des décisions infligeant une sanction.
+   - L’**article L. 211-5 du même code** précise que cette motivation doit énoncer les considérations de droit et de fait fondant la décision.
+   - Le **2 de l’article 83 du RGPD** liste les critères à prendre en compte pour fixer le montant d’une amende administrative (gravité, durée, nombre de personnes concernées, etc.), mais **n’impose pas une explicitation détaillée de chaque critère** dans la motivation.
+
+2. **Application au cas d’espèce** :
+   - Le Conseil d'État souligne que la **formation restreinte de la CNIL n’était pas tenue** :
+     - D’**énoncer l’ensemble des critères** prévus à l’article 83 du RGPD (point 26).
+     - De **justifier précisément le montant de la sanction** (50 millions d’euros) par des éléments chiffrés ou une méthode de calcul (point 26).
+   - La motivation doit seulement **identifier les considérations essentielles** ayant conduit à la décision, ce qui a été fait ici (gravité des manquements, effets sur les utilisateurs, caractère continu des violations, etc.).
+
+3. **Conclusion** :
+   - Le Conseil d'État estime que la **motivation de la sanction** était **suffisante** au regard des exigences légales, car elle reposait sur des **éléments de fait et de droit pertinents** (points 25 et 26).
+   - Il écarte donc le moyen d’**insuffisance de motivation** et celui d’**erreur de droit** qui en découlerait.
+
+**En résumé** : La CNIL n’avait pas à détailler exhaustivement tous les critères de l’article 83 du RGPD ni à expliquer le calcul du montant de l’amende. Sa motivation, fondée sur les manquements constatés et leur gravité, était conforme aux obligations légales.",3
+12,q15,"En quoi les lignes directrices EDPB 04/2021 sur les codes de conduite répondent-elles à l'exigence, posée par Schrems II, d'un niveau de protection substantiellement équivalent pour les transferts hors UE ?","Les **lignes directrices EDPB 04/2021 sur les codes de conduite comme outils pour les transferts** répondent à l'exigence d'un **niveau de protection substantiellement équivalent** pour les transferts de données hors UE, posée par l'arrêt **Schrems II** (C-311/18), en intégrant plusieurs mécanismes clés. Voici comment elles y répondent :
+
+---
+
+### **1. Exigence d'un niveau de protection substantiellement équivalent**
+Dans **Schrems II**, la Cour de justice de l'UE (CJUE) a rappelé que les transferts de données vers des pays tiers doivent garantir un niveau de protection **substantiellement équivalent** à celui de l'UE, notamment en vertu des **articles 7, 8 et 47 de la Charte des droits fondamentaux** (vie privée, protection des données, recours effectif). Les lignes directrices EDPB 04/2021 s'appuient sur ce principe en exigeant que les **codes de conduite pour les transferts** couvrent :
+- **Les principes essentiels du RGPD** (transparence, minimisation des données, sécurité, etc.).
+- **Des garanties spécifiques aux transferts** (ex. : gestion des conflits de lois, limitations des accès par les autorités publiques du pays tiers).
+
+---
+
+### **2. Mécanismes pour compenser les insuffisances du droit du pays tiers**
+La CJUE a souligné dans **Schrems II** que les **clauses contractuelles types (SCC)** ou les **règles d'entreprise contraignantes (BCR)** ne suffisent pas si le droit du pays tiers permet des ingérences disproportionnées (ex. : surveillance de masse). Les lignes directrices EDPB 04/2021 imposent aux **codes de conduite** de :
+- **Évaluer les risques liés au droit du pays tiers** (ex. : lois sur la surveillance, accès des autorités publiques).
+- **Prévoir des mesures supplémentaires** (ex. : chiffrement, pseudonymisation) pour compenser les lacunes du droit local, conformément aux **Recommandations EDPB 01/2020 sur les mesures supplémentaires**.
+- **Exiger des engagements contraignants** des importateurs de données (ex. : notification des demandes d'accès des autorités, coopération avec les autorités de protection européennes).
+
+---
+
+### **3. Droits opposables et recours effectifs pour les personnes concernées**
+L'arrêt **Schrems II** a insisté sur la nécessité de **droits opposables** et de **voies de recours effectives** pour les personnes dont les données sont transférées. Les lignes directrices EDPB 04/2021 intègrent cette exigence en :
+- **Créant des droits de tiers bénéficiaires** : Les personnes concernées peuvent invoquer directement les règles du code de conduite devant les tribunaux ou les autorités de protection (ex. : droit à réparation en cas de violation).
+- **Imposant un mécanisme de plainte** : Les codes doivent prévoir un processus de traitement des plaintes (interne ou via l'organisme de surveillance du code).
+- **Garantissant l'accès à la justice** : Les importateurs de données doivent accepter la compétence des **tribunaux européens** et des **autorités de protection (SA)** pour les litiges liés au code.
+
+---
+
+### **4. Rôle renforcé des autorités de contrôle (SA) et de l'EDPB**
+Dans **Schrems II**, la CJUE a rappelé que les **autorités de protection (SA)** doivent pouvoir suspendre ou interdire un transfert si le niveau de protection n'est pas assuré. Les lignes directrices EDPB 04/2021 renforcent ce rôle en :
+- **Exigeant une approbation préalable** des codes par une **SA compétente** (avec avis de l'EDPB pour les codes transnationaux).
+- **Imposant un organisme de surveillance indépendant** (accredité par une SA) pour vérifier le respect du code par les importateurs de données.
+- **Permettant aux SA de suspendre un transfert** si le code n'est pas respecté ou si le droit du pays tiers compromet la protection des données.
+
+---
+
+### **5. Transparence et responsabilité des acteurs**
+Pour répondre à l'exigence de **proportionnalité** et de **nécessité** des ingérences (article 52 de la Charte), les lignes directrices EDPB 04/2021 imposent :
+- **Une description claire des transferts couverts** (nature des données, pays concernés, finalités).
+- **Un audit régulier** (interne ou externe) pour vérifier le respect du code.
+- **Une obligation de notification** en cas de changement de législation dans le pays tiers ou de demande d'accès par les autorités locales.
+
+---
+
+### **6. Flexibilité et adaptation aux risques spécifiques**
+Contrairement aux **SCC** ou aux **BCR**, qui sont des outils génériques, les **codes de conduite** permettent une approche **sectorielle ou par activité** (ex. : santé, cloud computing). Les lignes directrices EDPB 04/2021 encouragent cette flexibilité en :
+- **Adaptant les garanties** aux risques spécifiques du secteur ou du pays tiers.
+- **Complétant les mesures existantes** (ex. : ajout de clauses contractuelles supplémentaires si nécessaire).
+
+---
+
+### **7. Exemple concret : Gestion des conflits de lois**
+Un des points critiques soulevés par **Schrems II** était le **conflit entre le droit européen et le droit du pays tiers** (ex. : lois américaines sur la surveillance comme le **FISA 702** ou l'**E.O. 12333**). Les lignes directrices EDPB 04/2021 abordent ce problème en :
+- **Exigeant que l'importateur de données évalue** si le droit local l'empêche de respecter le code.
+- **Imposant des mesures correctives** (ex. : suspension du transfert, destruction des données) si le droit local entre en conflit avec le code.
+- **Prévoyant des mécanismes de coopération** entre l'importateur, l'exportateur et les autorités européennes pour gérer ces conflits.
+
+---
+
+### **Conclusion**
+Les lignes directrices EDPB 04/2021 répondent aux exigences de **Schrems II** en :
+1. **Garantissant un niveau de protection substantiellement équivalent** via des engagements contraignants et des mesures supplémentaires.
+2. **Renforçant les droits des personnes concernées** (recours effectifs, transparence).
+3. **Donnant aux autorités de contrôle les moyens d'agir** (suspension des transferts, surveillance indépendante).
+4. **Adaptant les garanties aux risques spécifiques** des transferts (secteur, pays tiers).
+
+Elles offrent ainsi une **alternative flexible et robuste** aux autres outils de transfert (SCC, BCR), tout en respectant les principes posés par la CJUE.",3
+13,q06,À quelle date la version 2.0 des lignes directrices EDPB 04/2021 sur les codes de conduite a-t-elle été adoptée ?,"La version 2.0 des lignes directrices sur les codes de conduite comme outils pour les transferts a été adoptée le **22 février 2022**, comme indiqué dans la section *""Version history""* (Page 2/16) et en haut de la première page du document.
+
+*(Source : Document fourni, Page 2 et Page 1)*",3
+14,q10,"Résume, pôle d'activité par pôle d'activité, ce qui a porté la croissance du chiffre d'affaires de VINCI au premier semestre 2025.","D'après le document, voici ce qui a porté la croissance du chiffre d'affaires de VINCI au premier semestre 2025, pôle par pôle :
+
+### **Concessions**
+- **VINCI Autoroutes** :
+  - Hausse du trafic de **2,2 %** sur le semestre (véhicules légers +2,5 %, poids lourds +0,6 %), soutenue par un effet de base favorable lié aux blocages agricoles de début 2024.
+  - Chiffre d'affaires en progression de **3,0 %** (3 171 M€ vs 3 079 M€ en 2024).
+
+- **VINCI Airports** :
+  - Croissance du trafic passagers de **6,4 %** (159 millions de passagers), tirée par l’augmentation des capacités des compagnies low-cost et une forte demande.
+  - Intégration des dernières acquisitions (aéroports de **Salvador de Bahia** et **Belo Horizonte** au Brésil).
+  - Chiffre d'affaires en hausse de **10,8 %** (2 253 M€ vs 2 033 M€ en 2024).
+
+- **Autres concessions** :
+  - Reprise de l’exploitation d’un tronçon autoroutier de **600 km** au Brésil (contrat de 30 ans).
+  - Chiffre d'affaires en forte hausse (**+43,6 %**, 324 M€ vs 226 M€ en 2024).
+
+---
+
+### **Services à l’énergie**
+- **VINCI Energies** :
+  - Croissance portée par les infrastructures électriques, les data centers, la numérisation des processus industriels et les enjeux de défense/souveraineté.
+  - Forte progression à l’international (**+7,5 %**), notamment en **Allemagne**, aux **Pays-Bas**, en **Amérique latine** et en **Asie du Sud-Est**.
+  - Chiffre d'affaires en hausse de **5,2 %** (10 050 M€ vs 9 551 M€ en 2024).
+
+- **Cobra IS** :
+  - Montée en puissance des projets **EPC** (plateformes offshore HVDC, lignes de transport électrique haute tension).
+  - Développement des énergies renouvelables (nouvelles centrales photovoltaïques au **Brésil**, portant la capacité totale à **1,2 GW**).
+  - Chiffre d'affaires en hausse de **8,9 %** (3 600 M€ vs 3 306 M€ en 2024).
+
+---
+
+### **Construction**
+- **VINCI Construction** :
+  - Stratégie de **sélectivité** et d’excellence opérationnelle, avec une amélioration de la marge malgré un léger recul du chiffre d'affaires (**-0,7 %**, 15 178 M€ vs 15 288 M€ en 2024).
+  - Croissance externe ciblée (acquisitions en **Europe du Sud-Est** et au **Royaume-Uni**).
+  - Progression à l’international (notamment en **Amérique centrale** et en **Europe de l’Est**).
+
+- **VINCI Immobilier** :
+  - Retour en territoire positif après une baisse de la demande en France (logement et non-résidentiel).
+  - Chiffre d'affaires stable (487 M€ vs 506 M€ en 2024).
+
+---
+
+### **Synthèse globale**
+- **Croissance organique** : **+1,2 %** (hors périmètre et change).
+- **Impact des acquisitions** : **+2,5 %** (notamment VINCI Airports et VINCI Construction).
+- **Chiffre d'affaires consolidé** : **+3,2 %** (34,9 Md€ vs 33,8 Md€ en 2024), tiré par les **concessions** et les **services à l’énergie**.",2
+15,q02,Quel est le montant de l'astreinte journalière prévue si les sociétés ne se mettent pas en conformité ?,"D'après le document, le montant de l'astreinte journalière prévue si les sociétés ne se mettent pas en conformité est de **cent mille (100 000) euros par jour de retard**, liquidable à l'issue d'un délai de six (6) mois à compter de la notification de la décision (voir le point 271 de la décision).",3
+16,q03,Quel est le montant de la sanction pécuniaire dont le Conseil d'État juge qu'elle ne revêt pas un caractère disproportionné ?,"D'après le document, le Conseil d'État juge que la **sanction pécuniaire de 50 000 000 d'euros** prononcée à l'encontre de la société Google (Google LLC) **ne revêt pas un caractère disproportionné** (voir le point 27 de la décision).",3
+17,q06,À quelle date la version 2.0 des lignes directrices EDPB 04/2021 sur les codes de conduite a-t-elle été adoptée ?, La version 2.0 des lignes directrices EDPB sur les codes de conduite a été adoptée le 22 février 2022.,3
+18,q14,La version anglaise de la délibération SAN-2025-004 reprend-elle fidèlement les montants d'amende de la version française ?,"Oui, la version anglaise de la délibération **SAN-2025-004** reprend fidèlement les montants d'amende de la version française. Voici la correspondance exacte :
+
+### **Version française** :
+- **GOOGLE LLC** : 200 000 000 € (deux cents millions d'euros).
+- **GOOGLE IRELAND LIMITED** : 125 000 000 € (cent vingt-cinq millions d'euros).
+
+### **Version anglaise** :
+- **GOOGLE LLC** : **200,000,000 euros** (two hundred million euros).
+- **GOOGLE IRELAND LIMITED** : **125,000,000 euros** (one hundred twenty-five million euros).
+
+Les montants sont identiques dans les deux versions, avec une formulation légèrement différente pour la traduction des nombres en lettres, mais sans divergence sur les chiffres.",3
+19,q08,Résume les deux manquements retenus par la CNIL contre Google dans cette délibération.,"Dans cette délibération, la CNIL (Commission Nationale de l'Informatique et des Libertés) retient deux manquements principaux contre les sociétés **Google LLC** et **Google Ireland Limited** :
+
+---
+
+### **1. Manquement à l’obligation de recueillir un consentement valide pour le dépôt de cookies (Article 82 de la loi Informatique et Libertés)**
+**Problème identifié** :
+Lors de la création d’un compte Google, les utilisateurs situés en France étaient confrontés à un parcours de consentement biaisé et non conforme aux exigences légales. Deux manquements spécifiques ont été relevés :
+
+#### **a) Absence de liberté de choix jusqu’en octobre 2023**
+- Le parcours de **""personnalisation express""** (1 étape) ne permettait pas aux utilisateurs de **refuser aussi facilement** le dépôt de cookies liés à la publicité personnalisée que de les accepter.
+  - **Exemple** : Accepter les cookies nécessitait **2 clics**, tandis que les refuser en optant pour des publicités génériques exigeait **6 clics** (via le parcours ""personnalisation manuelle"").
+  - **Conséquence** : Le consentement n’était pas **libre**, car le mécanisme incitait à accepter les cookies publicitaires par facilité.
+
+#### **b) Absence de consentement éclairé (persistant après octobre 2023)**
+- Même après les modifications apportées en octobre 2023 (ajout des boutons ""Tout refuser"" et ""Tout accepter""), les utilisateurs n’étaient **pas informés clairement** que :
+  - La création d’un compte Google **impliquait nécessairement** le dépôt de cookies à finalité publicitaire (personnalisée ou générique).
+  - Aucune option ne permettait de **refuser globalement** les cookies publicitaires (seul un choix entre deux types de publicité était proposé).
+- **Problèmes de transparence** :
+  - Les informations sur les cookies étaient **réparties sur plusieurs étapes**, avec des formulations ambiguës (ex. : ""Si vous acceptez, nous utiliserons aussi des cookies..."").
+  - La publicité personnalisée était **mise en avant** (via des formulations incitatives comme ""Activez la personnalisation des annonces""), tandis que la publicité générique était minimisée.
+
+**Base légale** :
+- **Article 82 de la loi Informatique et Libertés** (transposant l’article 5.3 de la directive *ePrivacy*), qui exige un consentement **libre, spécifique, éclairé et univoque** pour le dépôt de cookies non strictement nécessaires.
+- **RGPD (Article 4.11)** : Le consentement doit être une manifestation de volonté **claire et positive**, sans ambiguïté.
+
+---
+
+### **2. Manquement à l’obligation de recueillir le consentement pour la prospection commerciale par voie électronique (Article L. 34-5 du Code des postes et des communications électroniques)**
+**Problème identifié** :
+Les sociétés affichaient des **annonces publicitaires non sollicitées** dans les onglets **""Promotions""** et **""Réseaux sociaux""** de la messagerie **Gmail**, sans avoir recueilli le consentement préalable des utilisateurs.
+
+#### **a) Qualification des annonces comme ""prospection directe""**
+- Les annonces étaient **insérées entre les courriels privés** des utilisateurs, avec une apparence similaire à celle des vrais emails (même taille, même emplacement, logo de l’annonceur).
+- **Critères retenus par la CNIL** (et confirmés par la CJUE dans l’arrêt du 25 novembre 2021) :
+  - Les annonces étaient **affichées dans un espace réservé aux courriels privés** (boîte de réception), créant un **risque de confusion**.
+  - Elles **entravaient l’accès** aux courriels légitimes (comme des spams), forçant l’utilisateur à les supprimer pour consulter ses messages.
+  - Elles avaient un **but commercial** (promotion de produits/services tiers).
+
+#### **b) Absence de consentement préalable**
+- **Aucun consentement** n’était recueilli lors de :
+  - La création du compte Google (où seul un choix entre publicités personnalisées/génériques était proposé, sans mention de l’affichage dans Gmail).
+  - L’activation des **""fonctionnalités intelligentes""** (qui trient les emails en onglets), où aucune information sur les annonces n’était fournie.
+- **Conséquence** : Les utilisateurs étaient **forcés de recevoir** des publicités dans leur messagerie, sans possibilité de s’y opposer.
+
+**Base légale** :
+- **Article L. 34-5 du CPCE** (transposant l’article 13 de la directive *ePrivacy*) : Interdit la prospection directe par courrier électronique **sans consentement préalable**.
+- **Jurisprudence CJUE** (arrêt du 25/11/2021) : Confirme que l’affichage de publicités dans une boîte mail, sous une forme similaire à des emails, constitue une **utilisation de courrier électronique à des fins de prospection**, soumise à consentement.
+
+---
+
+### **Résumé des manquements**
+| **Manquement** | **Texte violé** | **Problème** | **Période concernée** |
+|----------------|----------------|--------------|-----------------------|
+| **1. Cookies publicitaires** | Article 82 de la loi Informatique et Libertés | - Consentement **non libre** (refus plus complexe qu’acceptation) jusqu’en octobre 2023. <br> - Consentement **non éclairé** (manque de transparence sur le dépôt obligatoire de cookies). | Jusqu’en octobre 2023 (pour le caractère libre) ; persistant après (pour le caractère éclairé). |
+| **2. Prospection dans Gmail** | Article L. 34-5 du CPCE | Affichage d’annonces publicitaires **sans consentement** dans les onglets ""Promotions"" et ""Réseaux sociaux"". | Depuis au moins 2022 (date des contrôles) jusqu’à la décision. |
+
+---
+
+### **Sanctions prononcées**
+- **Amendes** :
+  - **200 millions d’euros** pour Google LLC.
+  - **125 millions d’euros** pour Google Ireland Limited.
+- **Injonction** :
+  - Mettre en conformité les parcours de consentement (cookies et prospection dans Gmail).
+  - **Astreinte** de 100 000 €/jour de retard après 6 mois.
+- **Publication** de la décision (anonymisée après 2 ans).
+
+Ces manquements illustrent les **risques liés aux modèles économiques basés sur la publicité ciblée**, où la collecte de données et la prospection doivent respecter des règles strictes de transparence et de consentement.",3
+20,q04,"Quel est le chiffre d'affaires consolidé de VINCI au premier semestre 2025, et de quel pourcentage a-t-il progressé ?","Le chiffre d'affaires consolidé de VINCI au premier semestre 2025 s'élève à **34,9 milliards d'euros**, en hausse de **3,2 %** par rapport au premier semestre 2024.
+
+Cette information est clairement indiquée dans le document, notamment dans la section ""Chiffres clés"" et dans le rapport d'activité.",3
+21,q05,Quelle est la marge d'EBITDA de VINCI au premier semestre 2025 ?,"La marge d'EBITDA de VINCI au premier semestre 2025 est de **17,6 %** du chiffre d'affaires.
+
+Cette information est indiquée dans la section ""Chiffres clés"" du document, où il est précisé :
+- EBITDA : 6 129 millions d'euros
+- Marge sur chiffre d'affaires : 17,6 % (contre 16,8 % au premier semestre 2024).",3
