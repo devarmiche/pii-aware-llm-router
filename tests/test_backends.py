@@ -3,6 +3,48 @@ import pytest
 from src import backends
 
 
+def test_call_local_sizes_num_ctx_to_prompt_length(monkeypatch: pytest.MonkeyPatch) -> None:
+    captured = {}
+
+    class FakeResponse:
+        def raise_for_status(self) -> None:
+            pass
+
+        def json(self) -> dict:
+            return {"response": "réponse", "prompt_eval_count": 10, "eval_count": 5}
+
+    def fake_post(url: str, json: dict, timeout: int) -> FakeResponse:
+        captured["json"] = json
+        return FakeResponse()
+
+    monkeypatch.setattr(backends.requests, "post", fake_post)
+
+    backends.call_local("x" * 400)
+
+    assert captured["json"]["options"]["num_ctx"] == 400 // 4 + 512
+
+
+def test_call_local_caps_num_ctx_at_model_max(monkeypatch: pytest.MonkeyPatch) -> None:
+    captured = {}
+
+    class FakeResponse:
+        def raise_for_status(self) -> None:
+            pass
+
+        def json(self) -> dict:
+            return {"response": "réponse", "prompt_eval_count": 10, "eval_count": 5}
+
+    def fake_post(url: str, json: dict, timeout: int) -> FakeResponse:
+        captured["json"] = json
+        return FakeResponse()
+
+    monkeypatch.setattr(backends.requests, "post", fake_post)
+
+    backends.call_local("x" * 1_000_000)
+
+    assert captured["json"]["options"]["num_ctx"] == backends.OLLAMA_MAX_CONTEXT
+
+
 def test_call_api_raises_clearly_without_api_key(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.delenv("OPENROUTER_API_KEY", raising=False)
     with pytest.raises(RuntimeError, match="OPENROUTER_API_KEY"):

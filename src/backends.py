@@ -5,6 +5,14 @@ import requests
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
 OLLAMA_MODEL = "mistral:7b-instruct"
+# mistral:7b-instruct's real context window (`ollama show mistral:7b-instruct`).
+# Ollama's /api/generate defaults num_ctx to 2048 when it's not set explicitly,
+# silently truncating the prompt to that regardless of what the model actually
+# supports — confirmed by prompt_eval_count staying ~2051 across documents of
+# very different lengths. We size num_ctx to the prompt instead, capped here.
+OLLAMA_MAX_CONTEXT = 32768
+_CHARS_PER_TOKEN_ESTIMATE = 4  # rough for French/legal text; not exact
+_OUTPUT_TOKEN_BUDGET = 512  # num_ctx must also cover the generated answer
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 
@@ -17,10 +25,20 @@ class LLMResponse:
 
 
 def call_local(prompt: str) -> LLMResponse:
+    num_ctx = min(
+        len(prompt) // _CHARS_PER_TOKEN_ESTIMATE + _OUTPUT_TOKEN_BUDGET,
+        OLLAMA_MAX_CONTEXT,
+    )
     response = requests.post(
         OLLAMA_URL,
-        json={"model": OLLAMA_MODEL, "prompt": prompt, "stream": False},
-        timeout=120,
+        json={
+            "model": OLLAMA_MODEL,
+            "prompt": prompt,
+            "stream": False,
+            "options": {"num_ctx": num_ctx},
+        },
+        # Full-context CPU inference on a 7B model is slow — see claude.md.
+        timeout=600,
     )
     response.raise_for_status()
     data = response.json()
