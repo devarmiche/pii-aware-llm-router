@@ -1,4 +1,5 @@
 import os
+import time
 from dataclasses import dataclass
 
 import requests
@@ -58,12 +59,22 @@ def call_api(prompt: str, model: str) -> LLMResponse:
             "OPENROUTER_API_KEY is not set — export it before routing to the api backend"
         )
 
-    response = requests.post(
-        OPENROUTER_URL,
-        headers={"Authorization": f"Bearer {api_key}"},
-        json={"model": model, "messages": [{"role": "user", "content": prompt}]},
-        timeout=120,
-    )
+    # OpenRouter rate-limits bursts of large requests (429) independently of
+    # account credit; retried with backoff rather than surfaced as a failure,
+    # since a retry a few seconds later routinely succeeds (see claude.md eval
+    # runs). Not retried for other error codes (e.g. 402 payment required).
+    max_attempts = 4
+    for attempt in range(max_attempts):
+        response = requests.post(
+            OPENROUTER_URL,
+            headers={"Authorization": f"Bearer {api_key}"},
+            json={"model": model, "messages": [{"role": "user", "content": prompt}]},
+            timeout=120,
+        )
+        if response.status_code == 429 and attempt < max_attempts - 1:
+            time.sleep(2**attempt * 5)
+            continue
+        break
     response.raise_for_status()
     data = response.json()
     usage = data["usage"]

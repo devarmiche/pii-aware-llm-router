@@ -1,4 +1,5 @@
 import pytest
+import requests
 
 from src import backends
 
@@ -57,6 +58,8 @@ def test_call_api_parses_openrouter_response(monkeypatch: pytest.MonkeyPatch) ->
     captured = {}
 
     class FakeResponse:
+        status_code = 200
+
         def raise_for_status(self) -> None:
             pass
 
@@ -82,3 +85,52 @@ def test_call_api_parses_openrouter_response(monkeypatch: pytest.MonkeyPatch) ->
     assert captured["headers"]["Authorization"] == "Bearer test-key"
     assert captured["json"]["model"] == "some-model"
     assert captured["json"]["messages"][0]["content"] == "Quelle est la question ?"
+
+
+def test_call_api_retries_on_429_then_succeeds(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("OPENROUTER_API_KEY", "test-key")
+    monkeypatch.setattr(backends.time, "sleep", lambda seconds: None)
+
+    calls = []
+
+    class FakeResponse:
+        def __init__(self, status_code: int) -> None:
+            self.status_code = status_code
+
+        def raise_for_status(self) -> None:
+            pass
+
+        def json(self) -> dict:
+            return {
+                "choices": [{"message": {"content": "ok"}}],
+                "usage": {"prompt_tokens": 1, "completion_tokens": 1},
+            }
+
+    def fake_post(url: str, headers: dict, json: dict, timeout: int) -> FakeResponse:
+        calls.append(1)
+        return FakeResponse(429 if len(calls) < 3 else 200)
+
+    monkeypatch.setattr(backends.requests, "post", fake_post)
+
+    result = backends.call_api("prompt", "some-model")
+
+    assert len(calls) == 3
+    assert result.text == "ok"
+
+
+def test_call_api_gives_up_after_max_attempts_on_persistent_429(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setenv("OPENROUTER_API_KEY", "test-key")
+    monkeypatch.setattr(backends.time, "sleep", lambda seconds: None)
+
+    class FakeResponse:
+        status_code = 429
+
+        def raise_for_status(self) -> None:
+            raise requests.HTTPError("429 Too Many Requests")
+
+    monkeypatch.setattr(backends.requests, "post", lambda *a, **k: FakeResponse())
+
+    with pytest.raises(requests.HTTPError):
+        backends.call_api("prompt", "some-model")
