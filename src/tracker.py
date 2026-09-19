@@ -20,11 +20,15 @@ FIELDNAMES = [
 
 # model -> (price per 1k input tokens, price per 1k output tokens), in EUR.
 # Source: OpenRouter's public /api/v1/models pricing (USD per token), fetched
-# 2026-09-12: mistralai/mistral-large-2512 at $0.0000005 in / $0.0000015 out.
-# Converted at 1 USD = 0.86 EUR (EUR/USD ~1.16 that day). Re-derive both the
-# per-token price and the exchange rate before trusting this for a new date.
+# 2026-09-19: mistralai/mistral-large-2407 at $0.000002 in / $0.000006 out
+# (this is also what the floating "mistralai/mistral-large" alias resolves to
+# — the newer "-2512" snapshot only exists as a :batch/async variant on
+# OpenRouter and can't be called synchronously, so it's not used here).
+# Converted at 1 USD = 0.8726 EUR (ECB reference rate via frankfurter.dev,
+# 2026-09-18). Re-derive both the per-token price and the exchange rate
+# before trusting this for a new date.
 PRICE_EUR_PER_1K_TOKENS: dict[str, tuple[float, float]] = {
-    "mistralai/mistral-large-2512": (0.00043, 0.00129),
+    "mistralai/mistral-large-2407": (0.001745, 0.005236),
 }
 
 

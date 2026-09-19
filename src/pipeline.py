@@ -6,7 +6,11 @@ from src.router import RouteDecision, route
 from src.tracker import Timer, compute_api_cost, log_call
 
 # Served through OpenRouter — see claude.md and src/backends.py.
-API_MODEL = "mistralai/mistral-large-2512"
+# Pinned to a dated snapshot (not the floating "mistral-large" alias) so the
+# measured cost in the business case stays reproducible. "-2512" only exists
+# as a :batch (async) variant on OpenRouter as of 2026-09-19; 2407 is the
+# latest snapshot reachable through the synchronous chat/completions route.
+API_MODEL = "mistralai/mistral-large-2407"
 
 
 def build_prompt(query: str, doc_context: str) -> str:
@@ -52,7 +56,7 @@ def answer_question(doc_text: str, query: str, doc_count: int = 1) -> PipelineRe
             cost_eur = 0.0
         else:
             model = API_MODEL
-            response = call_api(prompt, model)  # raises until OpenRouter is wired
+            response = call_api(prompt, model)
             cost_eur = compute_api_cost(
                 model, response.input_tokens, response.output_tokens
             )
