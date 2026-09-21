@@ -93,3 +93,11 @@ See [`docs/BUSINESS_CASE.md`](docs/BUSINESS_CASE.md) for the full write-up: anon
 - The anonymizer over-detects PERSON and LOCATION (high recall, lower precision) — see `docs/BUSINESS_CASE.md` §3 for the measured numbers. This is a deliberate safe-failure direction for a masking system, not an oversight.
 - **The local route reliably fails, not degrades, on large documents.** On CPU-only hardware, `mistral:7b-instruct` at its real 32,768-token context window only completed 3 of 18 real-corpus questions within a 10-minute timeout — every document larger than ~50k characters timed out outright. See `docs/BUSINESS_CASE.md` §5 for what this means for the "local is free" framing, and why the router's PII-triggered sovereignty gate (which fires on 100% of these real documents) doesn't by itself make an all-local deployment viable without bigger hardware or a chunking strategy.
 - This is a portfolio-scale proof of concept, not a production system: no auth, no persistence beyond flat CSV logs, no retry/backoff on API rate limits, small sample sizes throughout (see `docs/BUSINESS_CASE.md` §7).
+
+## Status
+
+Feature-complete as a proof of concept: anonymizer, router, both backends, tracker, Streamlit app, Docker install and the measured business case are all done and covered by real numbers, not estimates. Extending it further (chunking for long documents, a bigger/GPU-backed local model, a production-grade store instead of flat CSV logs) is out of scope for this portfolio piece — see the Limitations sections above and in `docs/BUSINESS_CASE.md` §7 for exactly where the line was drawn and why.
+
+## License
+
+[MIT](LICENSE)
